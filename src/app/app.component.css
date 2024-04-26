@@ -1,6 +1,6 @@
 .navbar {
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 
 .sidenav {
@@ -11,7 +11,7 @@
     height: 100%;
     background-color: #f8f9fa;
     padding-top: 60px;
-    z-index: 0;
+    z-index: 1;
     overflow-x: hidden;
     transition: left 0.5s;
     margin-top: -7px;
