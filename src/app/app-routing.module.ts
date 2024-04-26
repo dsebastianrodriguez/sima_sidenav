@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProfileComponent } from './_api/profile/profile.component';
-import { ApplicationsComponent } from './_api/profile/_pages/applications/applications.component';
-import { SecurityComponent } from './_api/profile/_pages/security/security.component';
-import { SupportComponent } from './_api/profile/_pages/support/support.component';
+import { ApplicationsComponent } from './_api/_pages/applications/applications.component';
+import { SecurityComponent } from './_api/_pages/security/security.component';
+import { SupportComponent } from './_api/_pages/support/support.component';
 
 const routes: Routes = [
   { path: '', component: ProfileComponent },
