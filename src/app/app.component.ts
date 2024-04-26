@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Simaflor';
+
+  sidenavOpen: boolean = false;
+
+  toggleSidenav() {
+    console.log("Me ejecuto");
+    this.sidenavOpen = !this.sidenavOpen;
+  }
 }
