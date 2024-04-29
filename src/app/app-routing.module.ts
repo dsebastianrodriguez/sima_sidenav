@@ -1,17 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ProfileComponent } from './_api/profile/profile.component';
-import { ApplicationsComponent } from './_api/_pages/applications/applications.component';
-import { SecurityComponent } from './_api/_pages/security/security.component';
-import { SupportComponent } from './_api/_pages/support/support.component';
+import { ProfileComponent } from './auth/profile/profile.component';
+import { ApplicationsComponent } from './components/applications/applications.component';
+import { SecurityComponent } from './components/security/security.component';
+import { SupportComponent } from './components/support/support.component';
+import { NotFoundComponent } from './errors/not-found/not-found.component';
+import { NotOk500Component } from './errors/not-ok500/not-ok500.component';
+import { MaitenanceComponent } from './errors/maitenance/maitenance.component';
+import { ErrorDevelopComponent } from './errors/error-develop/error-develop.component';
 
 const routes: Routes = [
-  { path: '', component: ProfileComponent },
-  { path: 'profile', redirectTo: 'profile', pathMatch: 'full' },
-  { path: 'profile', component: ProfileComponent },
   { path: 'applications', component: ApplicationsComponent },
   { path: 'security', component: SecurityComponent },
   { path: 'support', component: SupportComponent },
+  { path: 'error-develop', component: ErrorDevelopComponent },
+  { path: 'error_server', component: NotOk500Component },
+  { path: 'maitenance', component: MaitenanceComponent },
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({
