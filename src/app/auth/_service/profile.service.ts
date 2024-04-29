@@ -13,6 +13,6 @@ export class ProfileService {
   constructor() { }
 
   public miPerfil() {
-    return this.http.get<any>(`${this.url}/profile/dsrodriguezs`);
+    return this.http.get<any>(`${this.url}/profile/dsrodriguez`);
   }
 }
