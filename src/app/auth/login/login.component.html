@@ -10,7 +10,7 @@
         <div class="col bg d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded"></div>
         <div class="col p-5 rounded-end">
             <div class="text-end">
-                <img src="assets/login/simaflor.jpg" width="48" alt="">
+                <img src="assets/login/simaflor.png" width="48" alt="">
             </div>
             <h2 class="fw-bold text-center py-5">Bienvenido</h2>
             <form action="#">
@@ -27,7 +27,8 @@
                     <label for="connected" class="form-check-label">Mantener conectado</label>
                 </div>
                 <div class="d-grid">
-                    <button type="submit" (click)="login()" class="btn btn-dark">Iniciar sesion</button>
+                    <button type="submit" (click)="login($event)" class="btn btn-dark"
+                        [disabled]="!usuario.valid || !contrasena.valid">Iniciar sesión</button>
                 </div>
                 <div class="my-3">
                     <span>¿Aun no tienes cuenta? <a href="/register">Registrate</a></span>

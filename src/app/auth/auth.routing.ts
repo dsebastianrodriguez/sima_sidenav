@@ -3,12 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { GuardianService } from '../_shared/guardian.service';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'profile', component: ProfileComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'profile', component: ProfileComponent, canActivate: [GuardianService] },
   { path: 'register', component: RegisterComponent },
 ];
 

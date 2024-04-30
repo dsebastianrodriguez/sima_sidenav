@@ -1,72 +1,81 @@
-<nav class="navbar navbar-dark bg-primary">
-  <div class="d-flex align-items-center" style="margin-left: 10px;">
-    <button type="button" class="btn btn-primary mr-2" (click)="toggleSidenav()">
-      <i class="fa fa-list" aria-hidden="true"></i>
-    </button>
-    <span class="navbar-brand mb-0 h1">SIMAFLOR</span>
-  </div>
-</nav>
-<div class="sidenav" [ngClass]="{'show': sidenavOpen}" id="sidenav">
-  <div class="accordion accordion-flush" id="accordionFlushExample">
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="flush-headingOne">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-          data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-          <i class="fa fa-cog" aria-hidden="true"></i> Soporte
-        </button>
-      </h2>
-      <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
-        data-bs-parent="#accordionFlushExample">
-        <div class="accordion-body">
-          <div class="btn-group-vertical w-100">
-            <button type="button" class="btn btn-primary" routerLink="/applications"><i class="fa fa-user"
-                aria-hidden="true"></i> Applications</button>
-            <button type="button" class="btn btn-primary" routerLink="/security"><i class="fa fa-lock"
-                aria-hidden="true"></i> Security</button>
-            <button type="button" class="btn btn-primary" routerLink="/support"><i class="fa fa-ambulance"
-                aria-hidden="true"></i> Support</button>
+<div [hidden]="flagNabvar">
+  <nav class="navbar navbar-dark bg-primary">
+    <div class="d-flex align-items-center" style="margin-left: 10px;">
+      <button type="button" class="btn btn-primary mr-8" (click)="toggleSidenav()">
+        <i class="fa fa-list" aria-hidden="true"></i>
+      </button>
+      <span class="navbar-brand mb-0 h1">SIMAFLOR</span>
+
+    </div>
+    <div class="ml-auto">
+      <button type="submit" routerLink="/profile" class="btn btn-dark mr-2">Mi perfil</button>
+      <button type="submit" routerLink="/evento" class="btn btn-dark mr-2">Eventos</button>
+      <button type="submit" routerLink="/formato" class="btn btn-dark mr-2">Formato</button>
+      <button type="submit" (click)="onLogout()" class="btn btn-dark mr-2">Cerrar sesion</button>
+    </div>
+  </nav>
+  <div class="sidenav" [ngClass]="{'show': sidenavOpen}" id="sidenav">
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingOne">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+            <i class="fa fa-cog" aria-hidden="true"></i> Soporte
+          </button>
+        </h2>
+        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+          data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <div class="btn-group-vertical w-100">
+              <button type="button" class="btn btn-primary" routerLink="/applications"><i class="fa fa-user"
+                  aria-hidden="true"></i> Applications</button>
+              <button type="button" class="btn btn-primary" routerLink="/security"><i class="fa fa-lock"
+                  aria-hidden="true"></i> Security</button>
+              <button type="button" class="btn btn-primary" routerLink="/support"><i class="fa fa-ambulance"
+                  aria-hidden="true"></i> Support</button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="flush-headingTwo">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-          data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-          <i class="fa fa-child" aria-hidden="true"></i> Aplicaciones
-        </button>
-      </h2>
-      <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
-        data-bs-parent="#accordionFlushExample">
-        <div class="accordion-body">
-          <div class="btn-group-vertical w-100">
-            <button type="button" class="btn btn-primary">Opción 1</button>
-            <button type="button" class="btn btn-primary">Opción 2</button>
-            <button type="button" class="btn btn-primary">Opción 3</button>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+            <i class="fa fa-child" aria-hidden="true"></i> Aplicaciones
+          </button>
+        </h2>
+        <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
+          data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <div class="btn-group-vertical w-100">
+              <button type="button" class="btn btn-primary">Opción 1</button>
+              <button type="button" class="btn btn-primary">Opción 2</button>
+              <button type="button" class="btn btn-primary">Opción 3</button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="flush-headingThree">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-          data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-          <i class="fa fa-lock" aria-hidden="true"></i> Seguridad
-        </button>
-      </h2>
-      <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
-        data-bs-parent="#accordionFlushExample">
-        <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the
-          <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening
-          here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more
-          representative of how this would look in a real-world application.
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+            <i class="fa fa-lock" aria-hidden="true"></i> Seguridad
+          </button>
+        </h2>
+        <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
+          data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the
+            <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting
+            happening
+            here in terms of content, but just filling up the space to make it look, at least at first glance, a bit
+            more
+            representative of how this would look in a real-world application.
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-
 <div class="container-sidenav">
   <router-outlet></router-outlet>
 </div>

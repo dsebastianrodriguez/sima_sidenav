@@ -25,7 +25,6 @@ export class LoginComponent {
     ]
   );
 
-  //private loginService: LoginService,
   constructor(private authService: AuthService,
     public fb: FormBuilder,
     private router: Router,
@@ -35,11 +34,16 @@ export class LoginComponent {
   ngOnInit(): void {
   }
 
-  login() {
+  login(event: Event) {
+    event.preventDefault();
     this.authService.login(this.usuario.value, this.contrasena.value).subscribe(data => {
       sessionStorage.setItem(environment.TOKEN, data.token);
-      console.log(data);
+      this.authService.nabvarReactivo.next(false);
       this.router.navigate(['/profile']);
+    },
+    error => {
+      // Manejar errores de inicio de sesión, por ejemplo, mostrar un mensaje de error al usuario.
+      console.error('Error en inicio de sesión:', error);
     });
   }
 }
