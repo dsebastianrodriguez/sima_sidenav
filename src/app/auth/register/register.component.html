@@ -1,1 +1,212 @@
-<p>register works!</p>
+<div class="container rounded shadow mt-3">
+    <br>
+    <div class="form-group mb-2">
+        <label class="form-check-label text-muted">
+            Los datos marcados con un asterisco
+            <strong class="text-danger">(*)</strong> son requeridos</label>
+    </div>
+    <br>
+    <div class="d-flex justify-content-between">
+        <h4>Registrar usuario</h4>
+        <a href="#" routerLink="/login" class="btn btn-dark">Atras</a>
+    </div>
+    <div class="form-row">
+        <form class="p-4 form" [formGroup]="form" (ngSubmit)="submit()">
+            <div>
+                <div class="col-lg-4 mb-3">
+                    <label for="title">Nombres:</label>
+                    <small class="text-danger" title="requerido"> (*)</small>
+                    <input id="name" type="text" class="form-control" formControlName="name" [ngClass]="{
+                        'is-valid':
+                        name?.enabled &&
+                        (name?.touched || name?.dirty) &&
+                        name?.valid,
+                        'is-invalid':
+                        name?.enabled &&
+                        (name?.touched || name?.dirty) &&
+                        !name?.valid
+                    }">
+                </div>
+                <div class="text-danger" *ngIf="(name?.dirty || name?.touched) && !name?.valid">
+                    <span *ngIf="name?.hasError('required')">
+                        El campo es requerido.
+                    </span>
+                </div>
+            </div>
+            <div>
+                <div class="col-lg-4 mb-3">
+                    <label for="title">Apellidos:</label>
+                    <small class="text-danger" title="requerido"> (*)</small>
+                    <input id="lastname" type="text" class="form-control" formControlName="lastname" [ngClass]="{
+                        'is-valid':
+                        lastname?.enabled &&                            
+                        (lastname?.touched || lastname?.dirty) &&
+                        lastname?.valid,
+                        'is-invalid':
+                        lastname?.enabled &&
+                        (lastname?.touched || lastname?.dirty) &&
+                        !lastname?.valid
+                    }">
+                </div>
+                <div class="text-danger" *ngIf="(lastname?.dirty || lastname?.touched) && !lastname?.valid">
+                    <span *ngIf="lastname?.hasError('required')">
+                        El campo es requerido.
+                    </span>
+                </div>
+            </div>
+            <div>
+                <div class="col-lg-4 mb-3">
+                    <label for="title">Usuario:</label>
+                    <small class="text-danger" title="requerido"> (*)</small>
+                    <input id="userb" type="text" class="form-control" formControlName="userb" [ngClass]="{
+                        'is-valid':
+                        userb?.enabled &&
+                        (userb?.touched || userb?.dirty) &&
+                        userb?.valid,
+                        'is-invalid':
+                        userb?.enabled &&
+                        (userb?.touched || userb?.dirty) &&
+                        !userb?.valid
+                    }">
+                </div>
+                <div class="text-danger" *ngIf="(userb?.dirty || userb?.touched) && !userb?.valid">
+                    <span *ngIf="userb?.hasError('required')">
+                        El campo es requerido.
+                    </span>
+                </div>
+            </div>
+            <div>
+                <div class="col-lg-4 mb-3">
+                    <label for="title">Numero documento:</label>
+                    <small class="text-danger" title="requerido"> (*)</small>
+                    <input id="idnumber" type="number" class="form-control" formControlName="idnumber" [ngClass]="{
+                        'is-valid':
+                        idnumber?.enabled &&
+                        (idnumber?.touched || idnumber?.dirty) &&
+                        idnumber?.valid,
+                        'is-invalid':
+                        idnumber?.enabled &&
+                        (idnumber?.touched || idnumber?.dirty) &&
+                        !idnumber?.valid
+                    }">
+                </div>
+                <div class="text-danger" *ngIf="(idnumber?.dirty || idnumber?.touched) && !idnumber?.valid">
+                    <span *ngIf="idnumber?.hasError('required')">
+                        El campo es requerido.
+                    </span>
+                </div>
+            </div>
+            <div>
+                <div class="col-lg-4 mb-3">
+                    <label for="title">Fecha de nacimiento:</label>
+                    <small class="text-danger" title="requerido"> (*)</small>
+                    <input id="dateofbirth" type="text" class="form-control" formControlName="dateofbirth" [ngClass]="{
+                        'is-valid':
+                        dateofbirth?.enabled &&
+                        (dateofbirth?.touched || dateofbirth?.dirty) &&
+                        dateofbirth?.valid,
+                            'is-invalid':
+                        dateofbirth?.enabled &&
+                        (dateofbirth?.touched || dateofbirth?.dirty) &&
+                        !dateofbirth?.valid
+                    }">
+                </div>
+                <div class="text-danger" *ngIf="(dateofbirth?.dirty || dateofbirth?.touched) && !dateofbirth?.valid">
+                    <span *ngIf="dateofbirth?.hasError('required')">
+                        El campo es requerido.
+                    </span>
+                </div>
+            </div>
+            <div>
+                <div class="col-lg-4 mb-3">
+                    <label for="email">Correo electronico:</label>
+                    <small class="text-danger" title="requerido"> (*)</small>
+                    <input id="email" type="email" class="form-control" formControlName="email" [ngClass]="{
+                        'is-valid':
+                        email?.enabled &&
+                        (email?.touched || email?.dirty) &&
+                        email?.valid,
+                        'is-invalid':
+                        email?.enabled &&
+                        (email?.touched || email?.dirty) &&
+                        !email?.valid
+                    }">
+                </div>
+                <div class="text-danger" *ngIf="(email?.dirty || email?.touched) && !email?.valid">
+                    <span *ngIf="email?.hasError('required')">
+                        El campo es requerido.
+                    </span>
+                </div>
+            </div>
+            <div>
+                <div class="col-lg-4 mb-3">
+                    <label for="title">Contraseña:</label>
+                    <small class="text-danger" title="requerido"> (*)</small>
+                    <input id="password" type="password" class="form-control" formControlName="password" [ngClass]="{
+                        'is-valid':
+                        password?.enabled &&
+                        (password?.touched || password?.dirty) &&
+                        password?.valid,
+                        'is-invalid':
+                        password?.enabled &&
+                        (password?.touched || password?.dirty) &&
+                        !password?.valid
+                    }">
+                </div>
+                <div class="text-danger" *ngIf="(password?.dirty || password?.touched) && !password?.valid">
+                    <span *ngIf="password?.hasError('required')">
+                        El campo es requerido.
+                    </span>
+                </div>
+            </div>
+            <div>
+                <div class="col-lg-4 mb-3">
+                    <label for="title">Confirmar contraseña:</label>
+                    <small class="text-danger" title="requerido"> (*)</small>
+                    <input id="password_confirmation" type="password" class="form-control"
+                        formControlName="password_confirmation" [ngClass]="{
+                        'is-valid':
+                        password_confirmation?.enabled &&
+                        (password_confirmation?.touched || password_confirmation?.dirty) &&
+                        password_confirmation?.valid,
+                        'is-invalid':
+                        password_confirmation?.enabled &&
+                        (password_confirmation?.touched || password_confirmation?.dirty) &&
+                        !password_confirmation?.valid
+                    }">
+                </div>
+                <div class="text-danger"
+                    *ngIf="(password_confirmation?.dirty || password_confirmation?.touched) && !password_confirmation?.valid">
+                    <span *ngIf="password_confirmation?.hasError('required')">
+                        El campo es requerido.
+                    </span>
+                </div>
+            </div>
+            <br>
+            <!-- aca se empieza con lo de telefonos -->
+            <div class="form-group">
+                <a class="btn btn-dark" (click)="agregarTelefonos()">Agregar telefono</a>
+            </div>
+            <div formArrayName="telefonos" *ngFor="let telefono of telefonos.controls; let i=index">
+                <div [formGroupName]="i">
+                    <div class="form-group row">
+                        <label class="col-md-1" [attr.for]="'telefono' + i">Telefono</label>
+                        <div class="col-md-3">
+                            <input type="text" [attr.for]="'telefono' + i" class="form-control"
+                                formControlName="telefono">
+                        </div>
+                        <label class="col-md-1" [attr.for]="'descripcion' + i">Descripcion</label>
+                        <div class="col-md-3">
+                            <input type="text" [attr.for]="'descripcion' + i" class="form-control"
+                                formControlName="descripcion">
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-danger" (click)="removerTelefono(i)">Remover</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-dark" type="submit" [disabled]="!form.valid">Agregar</button>
+        </form>
+    </div>
+</div>

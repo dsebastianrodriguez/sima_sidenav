@@ -15,6 +15,13 @@ import { NotOk500Component } from './errors/not-ok500/not-ok500.component';
 import { MaitenanceComponent } from './errors/maitenance/maitenance.component';
 import { ErrorDevelopComponent } from './errors/error-develop/error-develop.component';
 import { ErrorUnauthorizedComponent } from './errors/error-unauthorized/error-unauthorized.component';
+import { environment } from 'src/environments/environment';
+import { JwtModule } from '@auth0/angular-jwt';
+
+export function tokenGetter(){
+  let tk = sessionStorage.getItem(environment.TOKEN);
+  return tk != null ? tk : '';
+}
 
 @NgModule({
   declarations: [
@@ -34,7 +41,14 @@ import { ErrorUnauthorizedComponent } from './errors/error-unauthorized/error-un
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    JwtModule.forRoot({
+      config:{
+        tokenGetter: tokenGetter,
+        allowedDomains: [`${environment.IP_PRINCIPAL}`],
+        disallowedRoutes: [`${environment.HOST}/api/login`],
+      }
+    }),
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
