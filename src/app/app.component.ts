@@ -14,6 +14,7 @@ export class AppComponent {
   private authService = inject(AuthService);
 
   ngOnInit(): void {
+    console.log("Una vez:");
     if(this.authService.estaLogueado() == true){
       this.flagNabvar = false;
       

@@ -21,8 +21,9 @@ export class GuardianService implements CanActivate {
 
       // const expirationDate = helper.getTokenExpirationDate(token);
       const isExpired = helper.isTokenExpired(token);
+      const url: string = state.url;
 
-
+      console.log("Soy url: ",url);
       if (!isExpired) {
         return true;
       } else {

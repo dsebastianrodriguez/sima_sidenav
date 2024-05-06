@@ -2,6 +2,8 @@ import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProfileService } from '../_service/profile.service';
 import { User } from '../_model/user';
+import { environment } from 'src/environments/environment';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Component({
   selector: 'app-profile',
@@ -9,24 +11,25 @@ import { User } from '../_model/user';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent {
-  // public profile!: any;
+  public helper = new JwtHelperService();
+  private token = sessionStorage.getItem(environment.TOKEN) ?? '';
+  private decodedToken = this.helper.decodeToken(this.token);
+
   public profile: User = {}; 
   private router = inject(Router);
   private profileService = inject(ProfileService)
-  // constructor(private usersService: UsersService, private router: Router) { }
 
+  
   ngOnInit(): void {
+    console.log("***");
     this.mostrarPerfil();
   }
 
   mostrarPerfil(){
-    console.log(this.profile);
-    this.profileService.miPerfil().subscribe(data=>{
-      // this.nombres = data.user.name;this.apellidos = data.user.lastname;this.usuario = data.user.userb;
-      // this.correo = data.user.email;
-      console.log(data)
+    const user = this.decodedToken.user;
+    this.profileService.miPerfil(user).subscribe(data=>{
       this.profile = data.user;
-      console.log(this.profile);
+      console.log("perfil: ",this.profile);
     });
   }
 }

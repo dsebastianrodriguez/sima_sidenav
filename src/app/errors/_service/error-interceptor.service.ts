@@ -22,7 +22,12 @@ export class ErrorInterceptorService implements HttpInterceptor {
       if (err.status == 0) {
         this.router.navigate(['/maitenance']);
       } else if (err.error.status == 400) {
-        alert(err.error.message);
+        if(err.error.error){
+          alert(err.error.error);
+        }else{
+          alert(err.error.message);
+        }
+        
       } else if (err.error.status == 401) {
         this.router.navigate(['/error_unauthorized']);
       } else if (err.error.status == 404) {

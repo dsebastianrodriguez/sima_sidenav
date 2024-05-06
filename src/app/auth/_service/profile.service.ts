@@ -12,7 +12,7 @@ export class ProfileService {
   private http = inject(HttpClient); private router = inject(Router);
   constructor() { }
 
-  public miPerfil() {
-    return this.http.get<any>(`${this.url}/profile/dsrodriguez`);
+  public miPerfil(user: number) {
+    return this.http.get<any>(`${this.url}/profile/${user}`);
   }
 }

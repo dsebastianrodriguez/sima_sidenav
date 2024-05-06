@@ -15,13 +15,28 @@
             <h2 class="fw-bold text-center py-5">Bienvenido</h2>
             <form action="#">
                 <div class="mb-4">
-                    <label for="email" class="form-label">Correo electronico</label>
-                    <input type="email" class="form-control" name="email" [formControl]="usuario">
+                    <label for="email" class="form-label">Usuario</label>
+                    <input type="email" class="form-control" name="email" [formControl]="usuario"
+                        [ngClass]="{ 'is-invalid': usuario.invalid && (usuario.dirty || usuario.touched), 'is-valid': usuario.valid && (usuario.dirty || usuario.touched) }"
+                        pattern="[a-zA-Z0-9]*">
+                    <div class="invalid-feedback" *ngIf="usuario.errors && (usuario.dirty || usuario.touched)">
+                        <div *ngIf="usuario.errors['required']">Este campo es requerido.</div>
+                        <div *ngIf="usuario.errors['pattern']">Solo se permiten letras y números.</div>
+                        <div *ngIf="usuario.errors['minlength']">Al menos 6 caracteres.</div>
+                        <div *ngIf="usuario.errors['maxlength']">Máximo 50 caracteres.</div>
+                    </div>
                 </div>
                 <div class="mb-4">
                     <label for="password" class="form-label">Contraseña</label>
-                    <input type="password" class="form-control" name="password" [formControl]="contrasena">
+                    <input type="password" class="form-control" name="password" [formControl]="contrasena"
+                        [ngClass]="{ 'is-invalid': contrasena.invalid && (contrasena.dirty || contrasena.touched), 'is-valid': contrasena.valid && (contrasena.dirty || contrasena.touched) }">
+                    <div class="invalid-feedback" *ngIf="contrasena.errors && (contrasena.dirty || contrasena.touched)">
+                        <div *ngIf="contrasena.errors['required']">Este campo es requerido.</div>
+                        <div *ngIf="contrasena.errors['minlength']">Al menos 6 caracteres.</div>
+                        <div *ngIf="contrasena.errors['maxlength']">Máximo 30 caracteres.</div>
+                    </div>
                 </div>
+
                 <div class="mb-4 form-check">
                     <input type="checkbox" name="connected" class="form-check-input">
                     <label for="connected" class="form-check-label">Mantener conectado</label>
