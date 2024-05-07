@@ -19,7 +19,7 @@ export class AuthService {
   // }
 
   public login(Usuario: string, Password: string) {
-    const body = `login=${encodeURIComponent(Usuario)}&password=${encodeURIComponent(Password)}`;
+    const body = `email=${encodeURIComponent(Usuario)}&password=${encodeURIComponent(Password)}`;
     // this.loggedIn.next(true);
     // this.usuarioReactivo.next(true);
     return this.http.post<any>(`${this.url}/login`, body, {
