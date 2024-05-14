@@ -43,10 +43,10 @@
                 </div>
                 <div class="d-grid">
                     <button type="submit" (click)="login($event)" class="btn btn-dark"
-                        [disabled]="!contrasena.valid">Iniciar sesión</button>
+                        [disabled]="!usuario.valid || !contrasena.valid">Iniciar sesión</button>
                 </div>
                 <div class="my-3">
-                    <span>¿Aun no tienes cuenta? <a href="/register">Registrate</a></span>
+                    <span>¿Aun no tienes cuenta? <a href="./register">Registrate</a></span>
                 </div>
             </form>
         </div>
