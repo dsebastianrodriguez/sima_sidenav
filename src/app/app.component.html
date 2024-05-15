@@ -1,17 +1,17 @@
 <div [hidden]="flagNabvar">
-  <nav class="navbar navbar-dark bg-primary">
+  <nav class="navbar navbar-dark bg-dark">
     <div class="d-flex align-items-center" style="margin-left: 10px;">
-      <button type="button" class="btn btn-primary mr-8" (click)="toggleSidenav()">
+      <button type="button" class="btn btn-dark mr-8" (click)="toggleSidenav()">
         <i class="fa fa-list" aria-hidden="true"></i>
       </button>
       <span class="navbar-brand mb-0 h1">SIMAFLOR</span>
 
     </div>
     <div class="ml-auto">
-      <button type="submit" routerLink="/profile" class="btn btn-primary mr-2">Mi perfil</button>
-      <button type="submit" routerLink="/evento" class="btn btn-primary mr-2">Eventos</button>
-      <button type="submit" routerLink="/formato" class="btn btn-primary mr-2">Formato</button>
-      <button type="submit" (click)="onLogout()" class="btn btn-primary mr-2">Cerrar sesion</button>
+      <button type="submit" routerLink="/profile" class="btn btn-dark mr-2">Mi perfil</button>
+      <button type="submit" routerLink="/evento" class="btn btn-dark mr-2">Eventos</button>
+      <button type="submit" routerLink="/formato" class="btn btn-dark mr-2">Formato</button>
+      <button type="submit" (click)="onLogout()" class="btn btn-dark mr-2">Cerrar sesion</button>
     </div>
   </nav>
   <div class="sidenav" [ngClass]="{'show': sidenavOpen}" id="sidenav">
@@ -27,11 +27,11 @@
           data-bs-parent="#accordionFlushExample">
           <div class="accordion-body">
             <div class="btn-group-vertical w-100">
-              <button type="button" class="btn btn-primary" routerLink="/applications"><i class="fa fa-user"
+              <button type="button" class="btn btn-dark" routerLink="/applications"><i class="fa fa-user"
                   aria-hidden="true"></i> Applications</button>
-              <button type="button" class="btn btn-primary" routerLink="/security"><i class="fa fa-lock"
+              <button type="button" class="btn btn-dark" routerLink="/security"><i class="fa fa-lock"
                   aria-hidden="true"></i> Security</button>
-              <button type="button" class="btn btn-primary" routerLink="/support"><i class="fa fa-ambulance"
+              <button type="button" class="btn btn-dark" routerLink="/support"><i class="fa fa-ambulance"
                   aria-hidden="true"></i> Support</button>
             </div>
           </div>
@@ -48,9 +48,9 @@
           data-bs-parent="#accordionFlushExample">
           <div class="accordion-body">
             <div class="btn-group-vertical w-100">
-              <button type="button" class="btn btn-primary">Opción 1</button>
-              <button type="button" class="btn btn-primary">Opción 2</button>
-              <button type="button" class="btn btn-primary">Opción 3</button>
+              <button type="button" class="btn btn-dark">Opción 1</button>
+              <button type="button" class="btn btn-dark">Opción 2</button>
+              <button type="button" class="btn btn-dark">Opción 3</button>
             </div>
           </div>
         </div>

@@ -9,7 +9,7 @@ import { NotOk500Component } from './errors/not-ok500/not-ok500.component';
 import { MaitenanceComponent } from './errors/maitenance/maitenance.component';
 import { ErrorDevelopComponent } from './errors/error-develop/error-develop.component';
 import { ErrorUnauthorizedComponent } from './errors/error-unauthorized/error-unauthorized.component';
-import { GuardianService } from './_shared/guardian.service';
+import { GuardianService } from './_shared/services/guardian.service';
 
 const routes: Routes = [
   { path: 'applications', component: ApplicationsComponent, canActivate: [GuardianService] },

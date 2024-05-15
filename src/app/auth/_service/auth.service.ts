@@ -14,12 +14,10 @@ export class AuthService {
   private http = inject(HttpClient); private router = inject(Router);
 
   constructor() { }
-  // get refresh(){
-  //   return this._refresh$;
-  // }
 
   public login(Usuario: string, Password: string) {
-    const body = `email=${encodeURIComponent(Usuario)}&password=${encodeURIComponent(Password)}`;
+    const body = `login=${encodeURIComponent(Usuario)}&password=${encodeURIComponent(Password)}`;
+    console.log('body: ',body);
     // this.loggedIn.next(true);
     // this.usuarioReactivo.next(true);
     return this.http.post<any>(`${this.url}/login`, body, {
