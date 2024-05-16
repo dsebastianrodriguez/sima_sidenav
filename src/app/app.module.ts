@@ -17,6 +17,8 @@ import { ErrorDevelopComponent } from './errors/error-develop/error-develop.comp
 import { ErrorUnauthorizedComponent } from './errors/error-unauthorized/error-unauthorized.component';
 import { environment } from 'src/environments/environment';
 import { JwtModule } from '@auth0/angular-jwt';
+import { SharedModule } from './_shared/shared.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 export function tokenGetter(){
   let tk = sessionStorage.getItem(environment.TOKEN);
@@ -33,13 +35,15 @@ export function tokenGetter(){
     NotOk500Component,
     MaitenanceComponent,
     ErrorDevelopComponent,
-    ErrorUnauthorizedComponent
+    ErrorUnauthorizedComponent    
   ],
   imports: [
     AuthModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    SharedModule,
+    NgbModule,
     ReactiveFormsModule,
     HttpClientModule,
     JwtModule.forRoot({
@@ -49,6 +53,7 @@ export function tokenGetter(){
         disallowedRoutes: [`${environment.HOST}/api/login`],
       }
     }),
+    NgbModule,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

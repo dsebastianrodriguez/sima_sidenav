@@ -1,1 +1,11 @@
 <p>applications works!</p>
+
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Launch static backdrop modal
+</button> -->
+<button class="btn btn-lg btn-outline-primary" (click)="open()">
+    Launch Confirmation Modal
+</button>
+<app-modal-custom #confirmationModal (newConfirmationEvent)="getConfirmationValue($event)" [modalStyle]="modalStyle"
+    [modalTitle]="modalTitle" [modalBody]="modalBody" [modalButtonColor]="modalButtonColor">
+</app-modal-custom>
