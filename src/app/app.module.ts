@@ -19,6 +19,7 @@ import { environment } from 'src/environments/environment';
 import { JwtModule } from '@auth0/angular-jwt';
 import { SharedModule } from './_shared/shared.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export function tokenGetter(){
   let tk = sessionStorage.getItem(environment.TOKEN);
@@ -54,6 +55,7 @@ export function tokenGetter(){
       }
     }),
     NgbModule,
+    BrowserAnimationsModule,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

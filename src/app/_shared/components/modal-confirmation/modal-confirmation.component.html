@@ -1,0 +1,22 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <h4 class="modal-title">
+            <em class="fa fa-xs fa-exclamation-triangle text-warning"></em>&nbsp;&nbsp;&nbsp;
+            {{ titulo }}
+        </h4>
+        <button type="button" class="close" aria-label="Close" (click)="onCancel()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <span [innerHTML]="mensaje"></span>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="onConfirm()">
+            {{ enIngles === true ? "OK" : "Aceptar" }}
+        </button>
+        <button type="button" class="btn btn-danger" (click)="onCancel()">
+            {{ enIngles === true ? "Cancel" : "Cancelar" }}
+        </button>
+    </div>
+</div>

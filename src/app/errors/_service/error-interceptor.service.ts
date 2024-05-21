@@ -2,6 +2,7 @@ import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } fr
 import { Injectable, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { EMPTY, Observable, catchError, retry, tap } from 'rxjs';
+import { ModalCustomService } from 'src/app/_shared/services/modal-custom.service';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -10,6 +11,7 @@ import { environment } from 'src/environments/environment';
 export class ErrorInterceptorService implements HttpInterceptor {
 
   private router = inject(Router);
+  private _notificacionesService = inject(ModalCustomService);
   constructor() { }
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(req).pipe(retry(environment.REINTENTOS)).pipe(tap(event => {
@@ -20,6 +22,7 @@ export class ErrorInterceptorService implements HttpInterceptor {
       }
     })).pipe(catchError((err) => {
       if (err.status == 0) {
+
         this.router.navigate(['/maitenance']);
       } else if (err.error.status == 400) {
         if(err.error.error){
