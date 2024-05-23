@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
+import { encrypt } from 'src/app/_shared/util/util-encryp';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -16,10 +17,7 @@ export class AuthService {
   constructor() { }
 
   public login(Usuario: string, Password: string) {
-    const body = `login=${encodeURIComponent(Usuario)}&password=${encodeURIComponent(Password)}`;
-    console.log('body: ',body);
-    // this.loggedIn.next(true);
-    // this.usuarioReactivo.next(true);
+    const body = `login=${encodeURIComponent(encrypt(JSON.stringify(Usuario)))}&password=${encodeURIComponent(encrypt(JSON.stringify(Password)))}`;
     return this.http.post<any>(`${this.url}/login`, body, {
       headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8')
         .set('Authorization', 'Basic' + btoa(`${environment.TOKEN_AUTH}`))
